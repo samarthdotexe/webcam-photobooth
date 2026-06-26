@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aesthetic SketchBooth</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&family=Syne:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="booth-container">
+        <header class="booth-header">
+            <h1>SKETCH//BOOTH</h1>
+            <p>Capture, stylize, and download your aesthetic frames.</p>
+        </header>
+
+        <div class="main-layout">
+            <div class="viewfinder-section">
+                <div class="video-wrapper">
+                    <video id="webcam" autoplay playsinline></video>
+                    <div class="frame-overlay"></div>
+                </div>
+
+                <button id="capture-btn" class="btn primary-btn">Take Snapshot</button>
+            </div>
+
+            <div class="control-section">
+                <h3>1. Select FX Filter</h3>
+                <div class="filter-rack">
+                    <button class="filter-btn active" data-filter="none">Normal</button>
+                    <button class="filter-btn" data-filter="grayscale(100%) contrast(200%)">Sketch B&W</button>
+                    <button class="filter-btn" data-filter="sepia(100%) contrast(120%)">Vintage</button>
+                    <button class="filter-btn" data-filter="invert(100%)">Invert Tech</button>
+                    <button class="filter-btn" data-filter="hue-rotate(90deg) saturate(200%)">Cyberpunk</button>
+                </div>
+
+                <h3>2. Final Output Preview</h3>
+                <div class="canvas-wrapper">
+                    <canvas id="output-canvas"></canvas>
+                </div>
+
+                <button id="download-btn" class="btn secondary-btn" disabled>Download Image</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

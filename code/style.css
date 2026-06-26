@@ -1,0 +1,162 @@
+/* Styling Configurations & Root Elements */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #fdfbf7; /* Off-white aesthetic cream background */
+    color: #1a1a1a;
+    font-family: 'Space Grotesk', sans-serif;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.booth-container {
+    max-width: 1100px;
+    width: 100%;
+}
+
+/* Typography Customization */
+.booth-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.booth-header h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 3rem;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+}
+
+.booth-header p {
+    color: #666;
+    margin-top: 5px;
+}
+
+h3 {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    color: #333;
+}
+
+/* Dynamic Main Workspace Layout Grid */
+.main-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+@media (max-width: 768px) {
+    .main-layout {
+        grid-template-columns: 1fr; /* Stack layout on tablets/mobiles */
+    }
+}
+
+/* Viewfinder Area Styling (Left Side) */
+.viewfinder-section, .control-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.video-wrapper, .canvas-wrapper {
+    width: 100%;
+    aspect-ratio: 4 / 3; /* Matches global webcam aspect ratios safely */
+    background: #111;
+    border: 3px solid #1a1a1a;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 8px 8px 0px #1a1a1a; /* Brutalist shadow pop */
+    margin-bottom: 20px;
+}
+
+#webcam {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Crops stream correctly to eliminate whitespace */
+    transform: scaleX(-1); /* Mirrors the stream so it behaves like a mirror */
+}
+
+/* Custom Image Filters applied dynamically via JavaScript classes */
+.video-wrapper, #output-canvas {
+    transition: filter 0.2s ease-in-out;
+}
+
+/* FX Filter Layout Styling Grid */
+.filter-rack {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+/* Interactive Component States (Buttons) */
+.btn {
+    width: 100%;
+    padding: 16px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    border: 3px solid #1a1a1a;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.primary-btn {
+    background: #ff5e5b; /* Vibrant pastel coral highlight color */
+    color: #fff;
+    box-shadow: 4px 4px 0px #1a1a1a;
+}
+
+.secondary-btn {
+    background: #00cecb; /* High-energy neon teal highlight color */
+    color: #1a1a1a;
+    box-shadow: 4px 4px 0px #1a1a1a;
+}
+
+.filter-btn {
+    background: #fff;
+    border: 2px solid #1a1a1a;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background: #1a1a1a;
+    color: #fff;
+}
+
+.btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px #1a1a1a;
+}
+
+.btn:disabled {
+    background: #e0e0e0;
+    color: #999;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+    border-color: #999;
+}
+
+/* Canvas Output Element Adjustments */
+#output-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: #fafafa;
+    transform: scaleX(-1); /* Keep the final picture mirrored like real photobooths */
+}
